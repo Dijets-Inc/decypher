@@ -1,0 +1,34 @@
+{
+    "name": "Decypher by Dijets",
+    "version": "0.1.3",
+    "description": "Open-Source Web3 & DeFi enabled wallet for Avalanche",
+    "manifest_version": 3,
+    "homepage_url": "https://xdjtx.io",
+    "background":{
+        "service_worker": "hard_working_metro_worker-bundle.js",
+        "type": "module"
+    },
+    "content_scripts":[{
+        "matches": ["http://*/*", "https://*/*","<all_urls>"],
+        "js": ["metro_fluid_injector-bundle.js"],
+        "run_at": "document_start",
+        "type": "module",
+        "all_frames": true
+    }],
+    "web_accessible_resources": [{
+        "resources": ["metro_injected_fluids-bundle.js"],
+        "matches": ["http://*/*", "https://*/*", "<all_urls>"]
+      }],
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Decypher by Dijets"
+    },
+    "permissions": [
+        "clipboardWrite"
+      ],
+    "icons": {
+        "16": "assets/3.png",
+        "48": "assets/3.png",
+        "128": "assets/3.png"
+    }
+}
